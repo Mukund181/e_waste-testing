@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --app-width: 393px;
+  --app-height: 852px;
+  
+  --bg-gradient: linear-gradient(180deg, #0f172a 0%, #020617 100%);
+  --surface-color: rgba(30, 41, 59, 0.7);
+  --surface-border: rgba(255, 255, 255, 0.08);
+  
+  --primary-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --primary-color: #10b981;
+  --primary-glow: rgba(16, 185, 129, 0.4);
+  
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  
+  --glass-bg: rgba(15, 23, 42, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #0f172a;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(16, 185, 129, 0.03), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.03), transparent 25%);
+  color: #334155;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+}
+
+#root {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* Test Cases Panel Container */
+.test-cases-panel {
+  width: 100%;
+  max-width: var(--app-width);
+  background: var(--surface-color);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--surface-border);
+  border-radius: 24px;
+  padding: 24px;
+  margin-bottom: 32px;
+  text-align: left;
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+  color: #fff;
+}
+
+.test-cases-panel h2 {
+  margin: 0 0 16px 0;
+  font-size: 20px;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.test-case-item {
+  background: rgba(255,255,255,0.03);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--text-muted);
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.test-case-item:hover {
+  background: rgba(255,255,255,0.05);
+  border-left: 3px solid var(--primary-color);
+  color: var(--text-main);
+}
+
+/* iPhone Styling */
+.iphone-frame {
+  width: var(--app-width);
+  height: var(--app-height);
+  background: var(--bg-gradient);
+  border-radius: 56px;
+  box-shadow: 
+    0 40px 80px -20px rgba(0, 0, 0, 0.8), 
+    inset 0 0 0 14px #000,
+    inset 0 0 0 15px rgba(255,255,255,0.2);
+  position: relative;
+  overflow: hidden;
+  color: var(--text-main);
+  text-align: left;
+}
+
+.dynamic-island {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 126px;
+  height: 37px;
+  background-color: #000;
+  border-radius: 20px;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px;
+}
+
+.camera-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #111;
+  box-shadow: inset -2px -2px 4px rgba(255,255,255,0.1);
+}
+
+.app-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 60px 24px 32px 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.app-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Premium Layout Inputs/Buttons */
+.btn-primary {
+  background: var(--primary-gradient);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 18px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 20px var(--primary-glow);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: 0.5s;
+}
+
+.btn-primary:hover::after {
+  left: 100%;
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+.input-field {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid var(--surface-border);
+  border-radius: 16px;
+  padding: 16px 20px;
+  color: var(--text-main);
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.input-field:focus {
+  border-color: var(--primary-color);
+  background: rgba(15, 23, 42, 0.8);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+}
+
+.input-field::placeholder {
+  color: #475569;
+}
+
+/* Glass Card */
+.glass-card {
+  background: linear-gradient(145deg, rgba(30,41,59,0.7) 0%, rgba(15,23,42,0.7) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--surface-border);
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Bottom Nav bar Custom */
+.bottom-nav {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 90px;
+  background: linear-gradient(180deg, rgba(2,6,23,0) 0%, rgba(2,6,23,0.9) 30%, rgba(2,6,23,1) 100%);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 16px 30px;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+}
+
+/* Modals */
+.modal-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(2, 6, 23, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal-content {
+  background: var(--surface-color);
+  border: 1px solid var(--surface-border);
+  border-radius: 32px;
+  padding: 32px 24px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  color: var(--text-main);
+}
+
+/* Grid layout utilities */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+
+.external-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+}
